@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отгадай пароль</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, 
+                rgb(255, 0, 0), /* красный */
+                rgb(255, 165, 0), /* оранжевый */
+                rgb(255, 255, 0), /* жёлтый */
+                rgb(0, 128, 0), /* зелёный */
+                rgb(0, 0, 255), /* синий */
+                rgb(128, 0, 128) /* фиолетовый */
+            );
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-size: 100% 600%;
+            animation: gradient 10s infinite alternate;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+
+        .password-form {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Стилизация кнопки "Войти" */
+        button[type="submit"] {
+            background: linear-gradient(to right, yellow, orange, green, yellow);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.5s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(to right, yellow, orange, green, yellow);
+        }
+
+        .error {
+            color: red;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-3px); }
+            100% { transform: translateX(3px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="password-form">
+        <h2 style="color: black;">Введите пароль</h2>
+        <form id="passwordForm" onsubmit="checkPassword(event)">
+            <input type="password" id="passwordInput" placeholder="Пароль" class="">
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+
+    <script>
+        function checkPassword(event) {
+            event.preventDefault();
+
+            var passwordInput = document.getElementById("passwordInput");
+            var password = passwordInput.value;
+
+            if (password === "porn") {
+                window.location.href = "https://clck.ru/39iXf3";
+            } else {
+                passwordInput.classList.add("error");
+                setTimeout(function() {
+                    passwordInput.classList.remove("error");
+                }, 500);
+            }
+        }
+    </script>
+
+</body>
+</html>
